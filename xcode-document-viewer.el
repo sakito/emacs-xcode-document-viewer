@@ -128,7 +128,7 @@
     (let ((b (save-window-excursion (w3m-browse-url (xcdoc:extract-html url) new-session) (get-buffer "*w3m*"))))
       (ignore-errors (save-selected-window (pop-to-buffer "*w3m*")))))
    (t
-    (wq3m-browse-url (xcdoc:extract-html url) new-session))))
+    (w3m-browse-url (xcdoc:extract-html url) new-session))))
 
 
 (defun xcdoc:search-source ()
