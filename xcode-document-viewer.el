@@ -170,8 +170,10 @@
 
 (defun xcdoc:search-at-point ()
   (interactive)
-  (let ((anything-quit-if-no-candidate (lambda () (message "no document for %s" (or (thing-at-point 'symbol) "")))))
-    (anything (list (xcdoc:search-at-point-source)))))
+  (if (thing-at-point 'symbol)
+      (let ((anything-quit-if-no-candidate (lambda () (message "no document for %s" (or (thing-at-point 'symbol) "")))))
+        (anything (list (xcdoc:search-at-point-source))))
+    (xcdoc:search)))
 
 (provide 'xcode-document-viewer)
 ;; xcode-document-viewer.el ends here.
